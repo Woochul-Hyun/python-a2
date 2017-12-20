@@ -1,0 +1,77 @@
+GridLayout:
+    id: mainProgramm
+    orientation:'vertical'
+    rows: 2
+    cols: 1
+    GridLayout:
+        cols: 2
+        rows: 1
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
+            Button:
+                id: listRequired_button
+                text: 'List Required'
+                on_release: app.book_button("r")
+            Button:
+                id: listCompleted_button
+                text: 'List Completed'
+                on_release: app.book_button("c")
+
+            Label:
+                text: 'Add New Book...'
+            Label:
+                text: 'Title:'
+            TextInput:
+                id: title_of_book
+                value: ''
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                write_tab: False
+            Label:
+                text: 'Author:'
+            TextInput:
+                id: book_author
+                value: ''
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                write_tab: False
+            Label:
+                text: 'Pages:'
+            TextInput:
+                id: number_of_page
+                value: ''
+                size_hint_y: None
+                height: '48dp'
+                multiline: False
+                write_tab: False
+            Button:
+                id: addButton
+                text: 'Add Item'
+                on_release: app.add_new_book(title_of_book.text, book_author.text,number_of_page.text)
+            Button:
+                id: clearButton
+                text: 'Clear'
+                on_release: app.clear_button()
+        GridLayout:
+            rows:2
+            cols:1
+            orientation: 'vertical'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    id: topStatusLabel
+                    size_hint_y: 0.1
+                    text: app.top_label
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: displayBookList
+                    cols: 1
+                Label:
+                    id: bottomStatusLabel
+                    size_hint_y: 0.1
+                    text: app.bottom_label
+
+
